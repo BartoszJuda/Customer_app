@@ -1,0 +1,19 @@
+<div xmlns:th="http://www.thymeleaf.org" th:fragment="form">
+    <p th:text="${welcome}">Add new link to database:</p>
+    <p th:text="${resultMessage}"></p>
+    <form th:action="@{/cars/add}" action="/cars/add" method="post">
+        <input type="text" name="linkName" placeholder="linkName"/>
+        <input type="text" name="zipCodeA" placeholder="zipCodeA"/>
+        <input type="text" name="zipCodeB" placeholder="zipCodeB"/><br>
+        <input type="text" name="cityA" placeholder="cityA"/><br>
+        <input type="text" name="cityB" placeholder="cityB"/><br>
+        <input type="text" name="streetA" placeholder="streetA"/><br>
+        <input type="text" name="streetB" placeholder="streetB"/><br>
+        <input type="text" name="subscriptionFee" placeholder="subscriptionFee"/><br>
+        <input type="text" name="linkLength" placeholder="linkLength"/><br>
+        <textarea type="text" name="description" placeholder="description"/></textarea>
+        <input type="text" name="technology" placeholder="technology"/><br>
+        <button type="submit">ADD</button>
+    </form>
+</div>
+
