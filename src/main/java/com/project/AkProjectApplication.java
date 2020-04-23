@@ -15,7 +15,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @SpringBootApplication //(exclude = {org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration.class})
 @ComponentScan(value = {
         "com.project.controllers",
-        "com.project.controllers.dto",
         "com.project.exceptions",
         "com.project.mapper",
         "com.project.models",
@@ -27,7 +26,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
         "com.project.security.repos",
         "com.project.docs",
         "com.project.controllers.rest",
-        "com.project.commons"
+        "com.project.commons",
+        "com.project.email"
         })
 public class AkProjectApplication {
 

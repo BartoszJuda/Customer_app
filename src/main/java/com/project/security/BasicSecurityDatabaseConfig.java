@@ -36,6 +36,7 @@ public class BasicSecurityDatabaseConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login**", "/register**").permitAll()
                 .antMatchers("/v2/api-docs",
                         "**/swagger-resources/**",
+                        "/feedback**",
                         "/swagger-ui.html**",
                         "/webjars/**",
                         "favicon.ico").permitAll()

@@ -63,7 +63,7 @@ public class CreatorXLS<T> {
         for (int i = 0; i < columns.size(); i++) {
             sheet.autoSizeColumn(i);
         }
-        String file = path + fileName + "_" + System.currentTimeMillis() + ".xls";
+        String file = path + fileName + ".xls";
         workbook.write(new File(file));
         workbook.close();
     }
