@@ -49,7 +49,7 @@ public class BasicSecurityDatabaseConfig extends WebSecurityConfigurerAdapter {
                 .usernameParameter("username")
                 .passwordParameter("password")
                 .successHandler((req, res, auth) -> {
-                    for (GrantedAuthority authority: auth.getAuthorities()){
+                    for (GrantedAuthority authority : auth.getAuthorities()) {
                         System.out.println(authority.getAuthority());
                     }
                     System.out.println(auth.getName());
@@ -77,6 +77,7 @@ public class BasicSecurityDatabaseConfig extends WebSecurityConfigurerAdapter {
                 .userDetailsService(customUserService)
                 .passwordEncoder(passwordEncoder);
     }
+
     @Bean
     public BasicAuthenticationEntryPoint swaggerAuthenticationEntryPoint() {
         BasicAuthenticationEntryPoint entryPoint = new BasicAuthenticationEntryPoint();

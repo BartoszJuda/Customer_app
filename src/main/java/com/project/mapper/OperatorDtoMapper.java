@@ -27,7 +27,8 @@ public class OperatorDtoMapper implements Mapper<Operator, OperatorDto> {
         return null;
     }
 
-    ;private enum LinksToString implements Function<Link, String> {
+
+    private enum LinksToString implements Function<Link, String> {
         INSTANCE;
 
         @Override

@@ -18,22 +18,22 @@ public class OperatorService {
         this.operatorRepository = operatorRepository;
     }
 
-    public List<Operator> getOperators(){
+    public List<Operator> getOperators() {
         return operatorRepository.findAll();
     }
 
-    public Operator createOperator (Operator operator){
+    public Operator createOperator(Operator operator) {
         return operatorRepository.save(operator);
     }
 
-    public Operator updateOperator(long id, Operator operator){
+    public Operator updateOperator(long id, Operator operator) {
         return operatorRepository.findById(id).map(o -> {
             o.setOperatorName(o.getOperatorName());
             return operatorRepository.save(o);
-        }). orElseThrow(() -> new ResourceNotFoundException("Operator by id: "+ id + " not found"));
+        }).orElseThrow(() -> new ResourceNotFoundException("Operator by id: " + id + " not found"));
     }
 
-    public ResponseEntity<?> deleteOperator(long id){
+    public ResponseEntity<?> deleteOperator(long id) {
         return operatorRepository.findById(id).map(o -> {
             operatorRepository.deleteById(id);
             return new ResponseEntity<>("Operator by id:" + id + " deleted successfully!", HttpStatus.OK);

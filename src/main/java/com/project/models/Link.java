@@ -20,32 +20,32 @@ public class Link {
     private String linkName;
 
     @NotNull
-    @Size(max= 7)
+    @Size(max = 7)
     @Column(name = "zip_code_A")
     private String zipCodeA;
 
     @NotNull
-    @Size(max= 7)
+    @Size(max = 7)
     @Column(name = "zip_code_B")
     private String zipCodeB;
 
     @NotNull
-    @Size(max= 30)
+    @Size(max = 30)
     @Column(name = "city_A")
     private String cityA;
 
     @NotNull
-    @Size(max= 30)
+    @Size(max = 30)
     @Column(name = "city_B")
     private String cityB;
 
     @NotNull
-    @Size(max= 45)
+    @Size(max = 45)
     @Column(name = "street_A")
     private String streetA;
 
     @NotNull
-    @Size(max= 45)
+    @Size(max = 45)
     @Column(name = "street_B")
     private String streetB;
 
@@ -56,7 +56,7 @@ public class Link {
     private int linkLength;
 
     @NotNull
-    @Size(max= 500)
+    @Size(max = 500)
     private String description;
 
     @Column(length = 10)

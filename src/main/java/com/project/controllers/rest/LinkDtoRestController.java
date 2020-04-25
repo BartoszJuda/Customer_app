@@ -22,47 +22,47 @@ public class LinkDtoRestController {
     }
 
     @GetMapping("/api/links/dto")
-    public List<LinkDto> getLinks(){
+    public List<LinkDto> getLinks() {
         return linkDtoService.getLinks();
     }
 
     @PostMapping("/api/links/dto")
-    public ResponseEntity<LinkDto> createLink(@RequestBody LinkDto linkDto){
+    public ResponseEntity<LinkDto> createLink(@RequestBody LinkDto linkDto) {
         LinkDto result = linkDtoService.create(linkDto);
 
-        if (result == null){
+        if (result == null) {
             return new ResponseEntity<>(HttpStatus.I_AM_A_TEAPOT);
         }
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @GetMapping("/api/links/dto/xls")
-    public List<LinkDto> getLinksToXlsFile(){
+    public List<LinkDto> getLinksToXlsFile() {
         List<LinkDto> series = linkDtoService.getLinks();
 
         CreatorXLS<LinkDto> creatorXLS = new CreatorXLS<>(LinkDto.class);
-        try{
+        try {
             creatorXLS.createFile(linkDtoService.getLinks(), "src/main/resources/", "links");
-        }catch (NoSuchMethodException e){
+        } catch (NoSuchMethodException e) {
             e.printStackTrace();
-        }catch (InvocationTargetException e){
+        } catch (InvocationTargetException e) {
             e.printStackTrace();
-        }catch (IllegalAccessException e){
+        } catch (IllegalAccessException e) {
             e.printStackTrace();
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
-            return  null;
+            return null;
         }
         return series;
     }
 
     @DeleteMapping("/api/links/dto/{id}")
-    public ResponseEntity<?> delete(@PathVariable long id){
+    public ResponseEntity<?> delete(@PathVariable long id) {
         return linkDtoService.delete(id);
     }
 
     @PutMapping("/api/links/dto/{id}")
-    public LinkDto update(@PathVariable long id, @RequestBody LinkDto linkDto){
+    public LinkDto update(@PathVariable long id, @RequestBody LinkDto linkDto) {
         return linkDtoService.update(id, linkDto);
     }
 }

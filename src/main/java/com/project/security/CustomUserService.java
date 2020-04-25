@@ -37,7 +37,7 @@ public class CustomUserService implements UserDetailsService {
     }
 
 
-    public UserApp registerUser(UserApp user){
+    public UserApp registerUser(UserApp user) {
         Role role = roleRepository.findById(2);
         Set<Role> roles = new HashSet<>();
         roles.add(role);

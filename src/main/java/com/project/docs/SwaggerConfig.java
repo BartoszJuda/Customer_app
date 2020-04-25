@@ -8,9 +8,6 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-import static springfox.documentation.builders.PathSelectors.any;
-import static springfox.documentation.builders.PathSelectors.regex;
-
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
@@ -20,10 +17,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.project.controllers.rest"))
-                //.apis(RequestHandlerSelectors.basePackage("com.project.controllers.dto"))
-                //.paths(regex("/api/.*"))
                 .paths(PathSelectors.any())
                 .build();
     }
-
 }

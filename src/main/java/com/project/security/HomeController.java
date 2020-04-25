@@ -20,11 +20,12 @@ public class HomeController {
     }
 
     @GetMapping("/signin")
-    public String homePage(Model model){
+    public String homePage(Model model) {
         SecurityContext context = SecurityContextHolder.getContext();
         model.addAttribute("message", "You're logged in as: " + context.getAuthentication().getName());
         return "/";
     }
+
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/admin")
     public String securedAdminPage() {

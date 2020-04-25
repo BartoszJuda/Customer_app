@@ -12,7 +12,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-@SpringBootApplication //(exclude = {org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration.class})
+@SpringBootApplication
+//(exclude = {org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration.class})
 @ComponentScan(value = {
         "com.project.controllers",
         "com.project.exceptions",
@@ -28,7 +29,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
         "com.project.controllers.rest",
         "com.project.commons",
         "com.project.email"
-        })
+})
 public class AkProjectApplication {
 
     public static void main(String[] args) {
@@ -36,7 +37,7 @@ public class AkProjectApplication {
     }
 
     @Bean
-    PasswordEncoder getPasswordEncoder(){
+    PasswordEncoder getPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
 

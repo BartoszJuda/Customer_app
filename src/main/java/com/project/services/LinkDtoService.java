@@ -61,10 +61,10 @@ public class LinkDtoService {
         link.setTechnology(linkDto.getTechnology());
 
         Operator operator = operatorRepository.findOperatorByOperatorName(linkDto.getOperator());
-       // if (operator == null) {
+        // if (operator == null) {
         //    logger.error("Error while getting Operator!");
-         //   return null;
-       // }
+        //   return null;
+        // }
 
         link.setOperator(operator);
         logger.info("Try to save Link to DB {}", link);
@@ -83,7 +83,7 @@ public class LinkDtoService {
         }).orElseThrow(() -> new ResourceNotFoundException("Link by id: " + id + " not found"));
     }
 
-     public LinkDto update(long id, LinkDto linkDto) {
+    public LinkDto update(long id, LinkDto linkDto) {
         return linkRepository.findById(id).map(l -> {
             l.setLinkName(linkDto.getLinkName());
             l.setZipCodeA(linkDto.getZipCodeA());
@@ -99,7 +99,7 @@ public class LinkDtoService {
             Operator operator = operatorRepository.findOperatorByOperatorName(linkDto.getOperator());
             l.setOperator(operator);
             linkRepository.save(l);
-             return linkDtoMapper.map(l);
-     }).orElseThrow(() -> new ResourceNotFoundException("Link by id: "+ id + " not found"));
- }
+            return linkDtoMapper.map(l);
+        }).orElseThrow(() -> new ResourceNotFoundException("Link by id: " + id + " not found"));
+    }
 }

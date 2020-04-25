@@ -14,12 +14,12 @@ import javax.mail.internet.MimeMessage;
 
 @RestController
 @CrossOrigin
-public class FeedbackRestController{
+public class FeedbackRestController {
 
     private EmailCfg emailCfg;
     private JavaMailSender javaMailSender;
 
-   @Autowired
+    @Autowired
     public FeedbackRestController(EmailCfg emailCfg, JavaMailSender javaMailSender) {
         this.emailCfg = emailCfg;
         this.javaMailSender = javaMailSender;
@@ -29,14 +29,14 @@ public class FeedbackRestController{
     }
 
     @PostMapping("/feedback")
-    public String sendEmail(@RequestBody Feedback feedback){
+    public String sendEmail(@RequestBody Feedback feedback) {
 
-        SimpleMailMessage message =  new SimpleMailMessage();
+        SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(feedback.getEmail());
         message.setSubject(feedback.getName());
         message.setText(feedback.getFeedback());
         javaMailSender.send(message);
-        return "Send succesfully!";
+        return "Send successfully!";
     }
 
     @PostMapping("/feedbackAttachment")
@@ -44,13 +44,14 @@ public class FeedbackRestController{
         MimeMessage message = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
         helper.setTo(feedback.getEmail());
-        helper.setSubject(feedback.getName());
-        helper.setText(feedback.getFeedback());
+        helper.setSubject("Link report");
+        helper.setFrom("NoReply@application.com");
+        helper.setText("This is your report!");
 
         ClassPathResource path = new ClassPathResource("links.xls");
         helper.addAttachment("links.xlsx", path);
 
         javaMailSender.send(message);
-        return  "Send succesfully!";
+        return "Send successfully!";
     }
 }

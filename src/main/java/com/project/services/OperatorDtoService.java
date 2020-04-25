@@ -24,7 +24,7 @@ public class OperatorDtoService {
         this.operatorDtoMapper = operatorDtoMapper;
     }
 
-    public List<OperatorDto> getOperators(){
+    public List<OperatorDto> getOperators() {
         List<OperatorDto> operatorDtos = new ArrayList<>();
         operatorRepository
                 .findAll()
@@ -32,14 +32,14 @@ public class OperatorDtoService {
         return operatorDtos;
     }
 
-    public OperatorDto create(OperatorDto operatorDto){
-        logger.info("Recieved operatorDto {}", operatorDto);
+    public OperatorDto create(OperatorDto operatorDto) {
+        logger.info("Received operatorDto {}", operatorDto);
         Operator operator = new Operator();
         operator.setOperatorName(operatorDto.getOperatorName());
 
         logger.info("Try to save Operator to DB {}", operator);
         Operator result = operatorRepository.save(operator);
-        if (result == null){
+        if (result == null) {
             logger.error("Error while saving Operator to DB!");
             return null;
         }

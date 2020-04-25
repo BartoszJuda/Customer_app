@@ -18,13 +18,13 @@ public class LinkDto {
     public LinkDto() {
     }
 
-    private LinkDto(Builder b){
+    private LinkDto(Builder b) {
         this.operator = b.operator;
         this.technology = b.technology;
         this.description = b.description;
         this.linkLength = b.linkLength;
         this.subscriptionFee = b.subscriptionFee;
-        this.streetA= b.streetA;
+        this.streetA = b.streetA;
         this.streetB = b.streetB;
         this.cityA = b.cityA;
         this.cityB = b.cityB;
@@ -129,7 +129,7 @@ public class LinkDto {
         return operator;
     }
 
-    public static class Builder{
+    public static class Builder {
 
         private String linkName;
         private String zipCodeA;
@@ -208,7 +208,7 @@ public class LinkDto {
             return this;
         }
 
-        public LinkDto build(){
+        public LinkDto build() {
             return new LinkDto(this);
         }
     }

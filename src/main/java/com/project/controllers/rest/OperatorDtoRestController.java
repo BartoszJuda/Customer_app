@@ -22,35 +22,35 @@ public class OperatorDtoRestController {
     }
 
     @GetMapping("/api/links/operator/dto")
-    public List<OperatorDto> getOperators(){
+    public List<OperatorDto> getOperators() {
         return operatorDtoService.getOperators();
     }
 
     @GetMapping("/api/links/operator/dto/xls")
-    public List<OperatorDto> getOperatorsToXlsFile(){
+    public List<OperatorDto> getOperatorsToXlsFile() {
         List<OperatorDto> series = operatorDtoService.getOperators();
 
         CreatorXLS<OperatorDto> creatorXLS = new CreatorXLS<>(OperatorDto.class);
-        try{
+        try {
             creatorXLS.createFile(operatorDtoService.getOperators(), "src/main/resources/", "operators");
-        }catch (NoSuchMethodException e){
+        } catch (NoSuchMethodException e) {
             e.printStackTrace();
-        }catch (InvocationTargetException e){
+        } catch (InvocationTargetException e) {
             e.printStackTrace();
-        }catch (IllegalAccessException e){
+        } catch (IllegalAccessException e) {
             e.printStackTrace();
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
-            return  null;
+            return null;
         }
         return series;
     }
 
     @PostMapping("/api/operators/dto")
-    public ResponseEntity<OperatorDto> createOperator(@RequestBody OperatorDto operatorDto){
+    public ResponseEntity<OperatorDto> createOperator(@RequestBody OperatorDto operatorDto) {
         OperatorDto result = operatorDtoService.create(operatorDto);
 
-        if(result == null){
+        if (result == null) {
             return new ResponseEntity<>(HttpStatus.I_AM_A_TEAPOT);
         }
         return new ResponseEntity<>(result, HttpStatus.OK);

@@ -2,11 +2,9 @@ package com.project.security;
 
 
 import com.project.security.models.UserApp;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Component;
 
 
 import java.util.Collection;
@@ -35,7 +33,7 @@ public class CustomUserDetails extends UserApp implements UserDetails {
 
     @Override
     public String getPassword() {
-        return super.getPassword(); //todo - przyjrzeć się czy nie powinno byc this zamiast super this.getPassword()
+        return super.getPassword();
     }
 
     @Override

@@ -19,27 +19,27 @@ public class LinkRestController {
     }
 
     @GetMapping("/api/links")
-    public List<Link> getLinks(){
+    public List<Link> getLinks() {
         return linkService.getLinks();
     }
 
     @GetMapping("/api/links/{id}")
-    public Link getLinks(@PathVariable long id){
+    public Link getLinks(@PathVariable long id) {
         return linkService.getLinkById(id);
     }
 
     @PostMapping("/api/links")
-    public Link createLink(@RequestBody Link link){
+    public Link createLink(@RequestBody Link link) {
         return linkService.createLink(link);
     }
 
     @PutMapping("/api/links/{id}")
-    public Link updateLink(@PathVariable long id, @RequestBody Link link){
+    public Link updateLink(@PathVariable long id, @RequestBody Link link) {
         return linkService.updateLink(id, link);
     }
 
     @DeleteMapping("api/links/{id}")
-    public ResponseEntity<?> deleteLink(@PathVariable long id){
+    public ResponseEntity<?> deleteLink(@PathVariable long id) {
         return linkService.deleteLink(id);
     }
 }

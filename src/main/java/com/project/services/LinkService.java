@@ -3,7 +3,6 @@ package com.project.services;
 import com.project.exceptions.ResourceNotFoundException;
 import com.project.models.Link;
 import com.project.repositories.LinkRepository;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -19,20 +18,20 @@ public class LinkService {
         this.linkRepository = linkRepository;
     }
 
-    public List<Link> getLinks(){
+    public List<Link> getLinks() {
         return linkRepository.findAll();
     }
 
-    public Link createLink(Link link){
+    public Link createLink(Link link) {
         return linkRepository.save(link);
     }
 
-    public Link getLinkById(long id){
+    public Link getLinkById(long id) {
         return linkRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("link by id: "+ id + " not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("link by id: " + id + " not found"));
     }
 
-    public Link updateLink(long id, Link link){
+    public Link updateLink(long id, Link link) {
         return linkRepository.findById(id).map(l -> {
             l.setLinkName(link.getLinkName());
             l.setZipCodeA(link.getZipCodeA());
@@ -47,13 +46,13 @@ public class LinkService {
             l.setTechnology(link.getTechnology());
             l.setOperator(link.getOperator()); //zakomentować
             return linkRepository.save(l);
-        }).orElseThrow(() -> new ResourceNotFoundException("Link by id: "+ id + " not found"));
+        }).orElseThrow(() -> new ResourceNotFoundException("Link by id: " + id + " not found"));
     }
 
-    public ResponseEntity<?> deleteLink(long id){
+    public ResponseEntity<?> deleteLink(long id) {
         return linkRepository.findById(id).map(l -> {
             linkRepository.deleteById(id);
-            return new ResponseEntity<>("Link by id" + id + " deleted succesfully!", HttpStatus.OK);
-        }).orElseThrow(() -> new ResourceNotFoundException("Link by id: "+ id + " not found"));
+            return new ResponseEntity<>("Link by id" + id + " deleted successfully!", HttpStatus.OK);
+        }).orElseThrow(() -> new ResourceNotFoundException("Link by id: " + id + " not found"));
     }
 }
