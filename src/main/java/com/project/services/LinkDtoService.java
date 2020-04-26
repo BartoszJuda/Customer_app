@@ -79,7 +79,7 @@ public class LinkDtoService {
     public ResponseEntity<?> delete(long id) {
         return linkRepository.findById(id).map(l -> {
             linkRepository.deleteById(id);
-            return new ResponseEntity<>("Link by id " + id + " deleted succesfully!", HttpStatus.OK);
+            return new ResponseEntity<>("Link by id " + id + " deleted successfully!", HttpStatus.OK);
         }).orElseThrow(() -> new ResourceNotFoundException("Link by id: " + id + " not found"));
     }
 

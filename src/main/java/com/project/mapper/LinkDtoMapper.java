@@ -13,6 +13,7 @@ public class LinkDtoMapper implements Mapper<Link, LinkDto> {
     public LinkDto map(Link from) {
         return new LinkDto
                 .Builder()
+                .Id(from.getId())
                 .CityA(from.getCityA())
                 .CityB(from.getCityB())
                 .StreetA(from.getStreetA())

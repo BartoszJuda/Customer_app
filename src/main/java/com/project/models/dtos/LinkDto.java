@@ -2,6 +2,7 @@ package com.project.models.dtos;
 
 public class LinkDto {
 
+    private long id;
     private String linkName;
     private String zipCodeA;
     private String zipCodeB;
@@ -19,6 +20,7 @@ public class LinkDto {
     }
 
     private LinkDto(Builder b) {
+        this.id = b.id;
         this.operator = b.operator;
         this.technology = b.technology;
         this.description = b.description;
@@ -31,6 +33,14 @@ public class LinkDto {
         this.zipCodeA = b.zipCodeA;
         this.zipCodeB = b.zipCodeB;
         this.linkName = b.linkName;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public void setLinkName(String linkName) {
@@ -131,6 +141,7 @@ public class LinkDto {
 
     public static class Builder {
 
+        private long id;
         private String linkName;
         private String zipCodeA;
         private String zipCodeB;
@@ -145,6 +156,11 @@ public class LinkDto {
         private String operator;
 
         public Builder() {
+        }
+
+        public Builder Id(long id) {
+            this.id = id;
+            return this;
         }
 
 
